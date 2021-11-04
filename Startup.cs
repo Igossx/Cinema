@@ -36,6 +36,10 @@ namespace Cinema
             });
 
             services.AddControllers();
+
+            // Adding Cors Policy to Angular App
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cinema", Version = "v1" });
@@ -55,6 +59,8 @@ namespace Cinema
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
