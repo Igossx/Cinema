@@ -10,13 +10,23 @@ import { NavComponent } from './nav/nav.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { MovieListComponent } from './movies/movie-list/movie-list.component';
+import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { PriceListComponent } from './price-list/price-list.component';
+import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './_modules/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieListComponent,
+    MovieDetailComponent,
+    AboutUsComponent,
+    PriceListComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +34,7 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

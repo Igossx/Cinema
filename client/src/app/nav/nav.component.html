@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Cinema</a>
+    <a class="navbar-brand" routerLink='/' routerLinkActive="active">Cinema</a>
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">O nas</a>
+        <a class="nav-link" routerLink='/about-us' routerLinkActive="active">O nas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Repertuar</a>
+        <a class="nav-link" routerLink='/movies' routerLinkActive="active">Repertuar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cennik</a>
+        <a class="nav-link" routerLink='/price-list' routerLinkActive="active">Cennik</a>
       </li>
     </ul>
 
-    <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-      <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
+    <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+      <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Witaj {{user.username | titlecase}}</a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
         <div class="dropdown-divider"></div>
