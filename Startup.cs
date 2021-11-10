@@ -1,6 +1,7 @@
 using Cinema.Data;
 using Cinema.Extensions;
 using Cinema.Interfaces;
+using Cinema.Middleware;
 using Cinema.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -58,6 +59,9 @@ namespace Cinema
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cinema v1"));
+
+                // Adding extra excption service
+                app.UseMiddleware<ExceptionMiddleware>();
             }
 
             app.UseHttpsRedirection();

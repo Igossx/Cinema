@@ -7,19 +7,14 @@
   <ItemGroup>
     <Compile Remove="client\src\app\nav\NewFolder\**" />
     <Compile Remove="client\src\app\NewFolder1\**" />
-    <Compile Remove="client\src\app\NewFolder\**" />
     <Content Remove="client\src\app\nav\NewFolder\**" />
     <Content Remove="client\src\app\NewFolder1\**" />
-    <Content Remove="client\src\app\NewFolder\**" />
     <EmbeddedResource Remove="client\src\app\nav\NewFolder\**" />
     <EmbeddedResource Remove="client\src\app\NewFolder1\**" />
-    <EmbeddedResource Remove="client\src\app\NewFolder\**" />
     <None Remove="client\src\app\nav\NewFolder\**" />
     <None Remove="client\src\app\NewFolder1\**" />
-    <None Remove="client\src\app\NewFolder\**" />
     <TypeScriptCompile Remove="client\src\app\nav\NewFolder\**" />
     <TypeScriptCompile Remove="client\src\app\NewFolder1\**" />
-    <TypeScriptCompile Remove="client\src\app\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="client\src\app\errors\" />
     <Folder Include="client\src\app\_services\" />
     <Folder Include="client\ssl\" />
   </ItemGroup>
