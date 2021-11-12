@@ -18,9 +18,9 @@
     </ul>
 
     <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
-      <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Witaj {{user.username | titlecase}}</a>
+      <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Witaj {{user.email}} <i class="fa fa-user-circle"></i></a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item">Edit Profile</a>
+        <a class="dropdown-item">Edytuj Profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()">Wyloguj</a>
       </div>
@@ -28,11 +28,11 @@
 
     <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()"
           autocomplete="off">
-      <input name="username"
-             [(ngModel)]="model.username"
+      <input name="email"
+             [(ngModel)]="model.email"
              class="form-control mr-sm-2"
-             type="text"
-             placeholder="Nazwa użytkownika">
+             type="email"
+             placeholder="Adres email">
       <input name="password"
              [(ngModel)]="model.password"
              class="form-control mr-sm-2"

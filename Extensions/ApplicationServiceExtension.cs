@@ -16,6 +16,7 @@ namespace Cinema.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
             // Adding MS Sql Database connection
             services.AddDbContext<DataContext>(options =>
             {

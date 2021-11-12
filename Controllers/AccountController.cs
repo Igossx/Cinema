@@ -29,13 +29,15 @@ namespace Cinema.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
+            if (await UserExists(registerDto.Username, registerDto.Email, registerDto.PhoneNumber)) return BadRequest("This user already exists");
 
             using var hmac = new HMACSHA512();
 
             var user = new AppUser
             {
                 UserName = registerDto.Username.ToLower(),
+                Email = registerDto.Email,
+                PhoneNumber = registerDto.PhoneNumber,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };
@@ -45,7 +47,7 @@ namespace Cinema.Controllers
 
             return new UserDto
             {
-                Username = user.UserName,
+                Email = user.Email,
                 Token = _tokenService.CreateToken(user)
             };
         }
@@ -54,9 +56,9 @@ namespace Cinema.Controllers
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _context.Users
-                .SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
+                .SingleOrDefaultAsync(x => x.Email == loginDto.Email);
 
-            if (user == null) return Unauthorized("Invalid username");
+            if (user == null) return Unauthorized("Invalid email");
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
@@ -69,14 +71,15 @@ namespace Cinema.Controllers
 
             return new UserDto
             {
-                Username = user.UserName,
+                Email = user.Email,
                 Token = _tokenService.CreateToken(user)
             };
         }
 
-        private async Task<bool> UserExists(string username)
+        private async Task<bool> UserExists(string username, string email, string phoneNumber)
         {
-            return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
+            return await _context.Users
+                .AnyAsync(x => x.UserName == username.ToLower() || x.Email == email || x.PhoneNumber == phoneNumber);
         }
     }
 }

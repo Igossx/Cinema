@@ -12,7 +12,16 @@ namespace Cinema.DTOs
         public string Username { get; set; }
 
         [Required]
-        [StringLength(8, MinimumLength = 4)]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [MaxLength(12), MinLength(9)]
+        [Phone]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [MinLength(6)]
         public string Password { get; set; }
     }
 }
