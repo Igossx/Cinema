@@ -12,5 +12,7 @@ namespace Cinema.Data
         public DataContext(DbContextOptions options) : base(options) { }
 
         public DbSet<AppUser> Users { get; set; }
+
+        public DbSet<Movie> Movies { get; set; }
     }
 }

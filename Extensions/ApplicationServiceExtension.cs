@@ -17,6 +17,7 @@ namespace Cinema.Extensions
         {
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
             // Adding MS Sql Database connection
             services.AddDbContext<DataContext>(options =>
             {

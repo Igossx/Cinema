@@ -4,14 +4,16 @@ using Cinema.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20211115173156_AddingMovie")]
+    partial class AddingMovie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,6 +61,9 @@ namespace Cinema.Migrations
                     b.Property<string>("CoverImageUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateOfRelease")
                         .HasColumnType("datetime2");
 
@@ -68,10 +73,7 @@ namespace Cinema.Migrations
                     b.Property<int>("Length")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PlayingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PlayingTime")
+                    b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
