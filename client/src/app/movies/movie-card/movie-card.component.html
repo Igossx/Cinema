@@ -1,0 +1,26 @@
+<div class="movie-card">
+  <div style="background: url({{movie.coverImageUrl}})" class="movie-header movie">
+  </div><!--movie-header-->
+  <div class="movie-content">
+    <div class="movie-content-header">
+      <a href="#">
+        <h3 class="movie-title">{{movie.title}}</h3>
+      </a>
+      <div class="imax-logo"></div>
+    </div>
+    <div class="movie-info">
+      <div class="info-section">
+        <label>Data</label>
+        <span>{{movie.playingDate | date:'shortDate'}}</span>
+      </div><!--date,time-->
+      <div class="info-section">
+        <label>Godzina</label>
+        <span>{{movie.playingTime | date:'shortTime'}}</span>
+      </div><!--screen-->
+      <div class="info-section">
+        <label>Kategoria</label>
+        <span>{{movie.category}}</span>
+      </div><!--row-->
+    </div>
+  </div><!--movie-content-->
+</div><!--movie-card-->
