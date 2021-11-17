@@ -1,1 +1,41 @@
-<p>movie-detail works!</p>
+<div class="row" *ngIf="movie">
+  <div class="col-4">
+    <div class="card">
+      <img src="{{movie.coverImageUrl}}" class="card-img-top img-thumbnail">
+      <div class="card-body">
+        <div class="text-center pb-4">
+          <button type="button" class="btn btn-outline-primary mr-3">Wróć</button>
+          <button type="button" class="btn btn-outline-success">Rezerwuj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="col-md-6">
+      <div class="small mb-1">
+        {{movie.category}}
+      </div>
+      <h1 class="display-5 fw-bolder">
+        {{movie.title}}
+      </h1>
+      <div class="fs-5 mb-3">
+        <span> Data premiery: {{movie.dateOfRelease | date:'shortDate'}}r.</span>
+      </div>
+      <tabset class="member-tabset">
+        <tab heading='Opis {{movie.title}}'>
+          <h4>Jakiś opis</h4>
+          <p>{{movie.title}}</p>
+          <h4>Looking for</h4>
+          <p>{{movie.title}}</p>
+        </tab>
+        <tab heading='Zwiastun'>
+          <h4>Interests</h4>
+          <p>{{movie.title}}</p>
+        </tab>
+        <tab heading='Obsada'>
+          <h4>Obsada</h4>
+          <p>Messages will go here</p>
+        </tab>
+      </tabset>
+    </div>
+  </div>

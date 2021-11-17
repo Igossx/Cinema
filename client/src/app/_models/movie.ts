@@ -6,7 +6,7 @@ export interface Movie {
   dateOfRelease: Date;
   trailerUrl: string;
   coverImageUrl: string;
-  category: number;
+  category: string;
   playingDate: Date;
   playingTime: Date;
   image: string;

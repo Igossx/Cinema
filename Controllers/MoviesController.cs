@@ -25,10 +25,11 @@ namespace Cinema.Controllers
             return Ok(movies);
         }
 
-        [HttpGet("{title}")]
-        public async Task<ActionResult<Movie>> GetMovie(string title)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-            return await _movieRepository.GetMovieByTitleAsync(title);
+            return await _movieRepository.GetMovieByIdAsync(id);
         }
+
     }
 }

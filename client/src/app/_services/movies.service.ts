@@ -15,7 +15,7 @@ export class MoviesService {
     return this.http.get<Movie[]>(this.baseUrl + 'movies');
   }
 
-  getMovie(title: string) {
-    return this.http.get<Movie>(this.baseUrl + 'movies/' + title);
+  getMovie(id: number) {
+    return this.http.get<Movie>(this.baseUrl + 'movies/' + id);
   }
 }

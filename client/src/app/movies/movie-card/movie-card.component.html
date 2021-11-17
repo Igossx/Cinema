@@ -3,7 +3,7 @@
   </div><!--movie-header-->
   <div class="movie-content">
     <div class="movie-content-header">
-      <a href="#">
+      <a routerLink="/movies/{{movie.id}}">
         <h3 class="movie-title">{{movie.title}}</h3>
       </a>
       <div class="imax-logo"></div>
@@ -19,7 +19,9 @@
       </div><!--screen-->
       <div class="info-section">
         <label>Kategoria</label>
-        <span>{{movie.category}}</span>
+        <span>
+          {{movie.category}}
+        </span>
       </div><!--row-->
     </div>
   </div><!--movie-content-->
