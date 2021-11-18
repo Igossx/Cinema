@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
+import { registerLocaleData } from '@angular/common';
+import localePl from '@angular/common/locales/pl';
+registerLocaleData(localePl);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +26,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { MovieCardComponent } from './movies/movie-card/movie-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { SafePipe } from './customPipes/safePipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     TestErrorsComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: "pl-Pl" }
   ],
   bootstrap: [AppComponent]
 })

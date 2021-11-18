@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from '../../_models/movie';
+import { Movie, MovieCategory } from '../../_models/movie';
 import { MoviesService } from '../../_services/movies.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { MoviesService } from '../../_services/movies.service';
 })
 export class MovieDetailComponent implements OnInit {
   movie!: Movie;
+  MovieCategory = MovieCategory;
 
   constructor(private moviesService: MoviesService, private route: ActivatedRoute) { }
 

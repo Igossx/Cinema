@@ -11,31 +11,40 @@
     </div>
   </div>
   <div class="col-8">
-    <div class="col-md-6">
+    <div class="col-md-10">
       <div class="small mb-1">
-        {{movie.category}}
+        {{MovieCategory[movie.category]}}, {{movie.length}} min.
       </div>
       <h1 class="display-5 fw-bolder">
         {{movie.title}}
       </h1>
-      <div class="fs-5 mb-3">
-        <span> Data premiery: {{movie.dateOfRelease | date:'shortDate'}}r.</span>
+      <div class="fs-6 mb-3">
+        <span> Premiera: {{movie.dateOfRelease | date:'d MMMM, y'}} r.</span>
       </div>
+      <hr />
+      <h1 class="fs-3 fw-bolder">
+        Seans: {{movie.playingDate | date:'d MMM, y'}} o {{movie.playingTime | date:'shortTime'}}
+      </h1>
+      <hr />
       <tabset class="member-tabset">
-        <tab heading='Opis {{movie.title}}'>
-          <h4>Jakiś opis</h4>
-          <p>{{movie.title}}</p>
-          <h4>Looking for</h4>
-          <p>{{movie.title}}</p>
+        <tab heading='Fabuła'>
+          <h4 class="pb-2">O czym jest film?</h4>
+          <p>{{movie.description}}</p>
         </tab>
         <tab heading='Zwiastun'>
-          <h4>Interests</h4>
-          <p>{{movie.title}}</p>
+          <h4 class="pb-2">Obejrzyj zwiastun na YouTube.</h4>
+          <iframe width="500" height="300" [src]="movie.trailerUrl | safe " frameborder="1" allowfullscreen></iframe>
         </tab>
         <tab heading='Obsada'>
-          <h4>Obsada</h4>
-          <p>Messages will go here</p>
+          <h4 class="pb-2">Obsada:</h4>
+          <p>Jakiś aktor</p>
+          <p>Jakiś aktor2</p>
+          <p>Jakiś aktor3</p>
+          <p>Jakiś aktor4</p>
+          <p>Jakiś aktor5</p>
+          <p>Jakiś aktor6</p>
         </tab>
       </tabset>
     </div>
   </div>
+</div>

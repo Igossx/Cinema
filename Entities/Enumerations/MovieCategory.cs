@@ -11,13 +11,13 @@ namespace Cinema.Entities.Enumerations
     {
         Horror = 1,
         Science_Fiction,
-        Action,
-        Adventure,
-        Animated,
-        Comedy,
-        Drama,
+        Akcja,
+        Przygodowy,
+        Animowany,
+        Komedia,
+        Dramat,
         Thriller,
         Western,
-        Historical
+        Historyczny
     }
 }
