@@ -37,7 +37,7 @@
 
   <ItemGroup>
     <Folder Include="client\src\app\errors\" />
-    <Folder Include="client\src\app\_services\" />
+    <Folder Include="client\src\app\account-edit\" />
     <Folder Include="client\ssl\" />
   </ItemGroup>
 

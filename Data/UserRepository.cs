@@ -17,6 +17,11 @@ namespace Cinema.Data
             _context = context;
         }
 
+        public async Task<AppUser> GetUserByEmail(string email)
+        {
+            return await _context.Users.SingleOrDefaultAsync(x => x.Email == email);
+        }
+
         public async Task<AppUser> GetUserByIdAsync(int id)
         {
             return await _context.Users.FindAsync(id);

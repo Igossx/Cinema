@@ -8,6 +8,7 @@ import { Movie, MovieCategory } from '../../_models/movie';
 })
 export class MovieCardComponent implements OnInit {
   @Input() movie!: Movie;
+  @Input() MovieCategory = MovieCategory;
 
   constructor() { }
 

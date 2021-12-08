@@ -27,6 +27,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MovieCardComponent } from './movies/movie-card/movie-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { SafePipe } from './customPipes/safePipe';
+import { AccountEditComponent } from './account-edit/account-edit/account-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SafePipe } from './customPipes/safePipe';
     NotFoundComponent,
     ServerErrorComponent,
     MovieCardComponent,
-    SafePipe
+    SafePipe,
+    AccountEditComponent
   ],
   imports: [
     BrowserModule,

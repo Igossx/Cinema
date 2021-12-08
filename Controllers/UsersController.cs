@@ -34,5 +34,11 @@ namespace Cinema.Controllers
         {
             return await _userRepository.GetUserByUsernameAsync(username);
         }
+
+        [HttpGet("{email}")]
+        public async Task<ActionResult<AppUser>> GetUserByEmail(string email)
+        {
+            return await _userRepository.GetUserByEmail(email);
+        }
     }
 }
